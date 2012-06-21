@@ -69,6 +69,13 @@ public:
         StrikeOutWeight,
         StrikeOutMode,
         StrikeOutText,
+        HighlightStyle,
+        HighlightType,
+        HighlightColor,
+        HighlightWidth,
+        HighlightWeight,
+        HighlightMode,
+        HighlightCategory,
         OverlineStyle,
         OverlineType,
         OverlineColor,
@@ -177,6 +184,11 @@ public:
         LineHeight
     };
 
+    enum Category {
+        NoHighlight,
+        Spelling,
+        Grammar
+    };
     /**
      * Constructor. Initializes with standard size/font properties.
      * @param parent the parent object for memory management purposes.
@@ -303,6 +315,31 @@ public:
     void setStrikeOutText(const QString &text);
     /// Get the current strike out text of this KoCharacterStyle
     QString strikeOutText() const;
+
+    /// Apply a highlight style to this KoCharacterStyle
+    void setHighlightStyle(LineStyle style);
+    /// Get the current highlight style of this KoCharacterStyle
+    LineStyle highlightStyle() const;
+    /// Apply a highlight width to this KoCharacterStyle
+    void setHighlightWidth(LineWeight weight, qreal width);
+    /// Get the current highlight width of this KoCharacterStyle
+    void highlightWidth(LineWeight &weight, qreal &width) const;
+    /// Apply a font highlight color to this KoCharacterStyle
+    void setHighlightColor(const QColor &color);
+    /// Get the current highlight color of this KoCharacterStyle
+    QColor highlightColor() const;
+    /// Apply a highlight color to this KoCharacterStyle
+    void setHighlightType(LineType lineType);
+    /// Get the current highlight color of this KoCharacterStyle
+    LineType highlightType() const;
+    /// Apply a highlight mode to this KoCharacterStyle
+    void setHighlightMode(LineMode mode);
+    /// Get the current highlight mode of this KoCharacterStyle
+    LineMode highlightMode() const;
+    /// Apply a highlight category to this KoCharacterStyle
+    void setHighlightCategory(Category category);
+    /// Get the current highlight category of this KoCharacterStyle
+    Category highlightCategory() const;
 
     /// Apply a font overline style to this KoCharacterStyle
     void setOverlineStyle(LineStyle style);

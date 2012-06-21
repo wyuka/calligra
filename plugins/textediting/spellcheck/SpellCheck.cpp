@@ -61,9 +61,9 @@ SpellCheck::SpellCheck()
     m_speller = Sonnet::Speller(spellConfig.readEntry("defaultLanguage", "en_US"));
     m_bgSpellCheck = new BgSpellCheck(m_speller, this);
 
-    m_defaultMisspelledFormat.setUnderlineStyle(QTextCharFormat::SpellCheckUnderline);
-    m_defaultMisspelledFormat.setUnderlineColor(QColor(Qt::red)); // TODO make use kde-config
-
+    //m_defaultMisspelledFormat.setProperty(KoCharacterStyle::SpellingType, KoCharacterStyle::SingleLine);
+    //m_defaultMisspelledFormat.setProperty(KoCharacterStyle::SpellingStyle, KoCharacterStyle::WaveLine);
+    m_defaultMisspelledFormat.setProperty(KoCharacterStyle::HighlightCategory, KoCharacterStyle::Spelling);
 
     m_spellCheckMenu = new SpellCheckMenu(m_speller, this);
     QPair<QString, KAction*> pair = m_spellCheckMenu->menuAction();

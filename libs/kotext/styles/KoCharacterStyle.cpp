@@ -1015,6 +1015,68 @@ KoCharacterStyle::LineMode KoCharacterStyle::strikeOutMode() const
     return (KoCharacterStyle::LineMode) d->propertyInt(StrikeOutMode);
 }
 
+void KoCharacterStyle::setHighlightStyle(KoCharacterStyle::LineStyle highlight)
+{
+    d->setProperty(HighlightStyle, highlight);
+}
+
+KoCharacterStyle::LineStyle KoCharacterStyle::highlightStyle() const
+{
+    return (KoCharacterStyle::LineStyle) d->propertyInt(HighlightStyle);
+}
+
+void KoCharacterStyle::setHighlightType(LineType lineType)
+{
+    d->setProperty(HighlightType, lineType);
+}
+
+KoCharacterStyle::LineType KoCharacterStyle::highlightType() const
+{
+    return (KoCharacterStyle::LineType) d->propertyInt(HighlightType);
+}
+
+void KoCharacterStyle::setHighlightColor(const QColor &color)
+{
+    d->setProperty(KoCharacterStyle::HighlightColor, color);
+}
+
+QColor KoCharacterStyle::highlightColor() const
+{
+    return d->propertyColor(KoCharacterStyle::HighlightColor);
+}
+
+void KoCharacterStyle::setHighlightWidth(LineWeight weight, qreal width)
+{
+    d->setProperty(KoCharacterStyle::HighlightWeight, weight);
+    d->setProperty(KoCharacterStyle::HighlightWidth, width);
+}
+
+void KoCharacterStyle::highlightWidth(LineWeight &weight, qreal &width) const
+{
+    weight = (KoCharacterStyle::LineWeight) d->propertyInt(KoCharacterStyle::HighlightWeight);
+    width = d->propertyDouble(KoCharacterStyle::HighlightWidth);
+}
+
+void KoCharacterStyle::setHighlightMode(LineMode mode)
+{
+    d->setProperty(KoCharacterStyle::HighlightMode, mode);
+}
+
+KoCharacterStyle::LineMode KoCharacterStyle::highlightMode() const
+{
+    return static_cast<KoCharacterStyle::LineMode>(d->propertyInt(KoCharacterStyle::HighlightMode));
+}
+
+void KoCharacterStyle::setHighlightCategory(KoCharacterStyle::Category category)
+{
+    d->setProperty(KoCharacterStyle::HighlightCategory, category);
+}
+
+KoCharacterStyle::Category KoCharacterStyle::highlightCategory() const
+{
+    return (KoCharacterStyle::Category) d->propertyInt(KoCharacterStyle::HighlightCategory);
+}
+
 void KoCharacterStyle::setOverlineStyle(KoCharacterStyle::LineStyle overline)
 {
     d->setProperty(OverlineStyle, overline);
